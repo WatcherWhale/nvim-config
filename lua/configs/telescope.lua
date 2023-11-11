@@ -16,7 +16,7 @@ vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
 vim.keymap.set('n', '<leader>fw', require('telescope').extensions.git_worktree.git_worktrees, {})
 --vim.keymap.set('n', '<leader>fa', create_worktree, {})
 vim.api.nvim_set_keymap("n", "<leader>fv", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })
-vim.keymap.set('n', '<leader>u', require("telescope").extensions.undo.undo)
+vim.keymap.set('n', '<leader>u', "<cmd>Telescope undo<cr>")
 
 
 require("telescope").setup{
