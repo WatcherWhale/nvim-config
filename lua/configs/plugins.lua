@@ -70,6 +70,7 @@ require("lazy").setup({
             'williamboman/mason-lspconfig.nvim',
             { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
             'folke/neodev.nvim',
+            'simrat39/rust-tools.nvim'
         },
     },
 
@@ -161,4 +162,14 @@ require("lazy").setup({
             end,
         },
     },
+    'David-Kunz/gen.nvim',
+    {
+        'f-person/git-blame.nvim',
+        event = "VeryLazy",
+        config = function()
+            require("gitblame").setup({
+                enabled = false,
+            })
+        end
+    }
 })

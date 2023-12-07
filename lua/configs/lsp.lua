@@ -30,7 +30,7 @@ local servers = {
     kotlin_language_server = {},
     --java_language_server = {},
     lua_ls = {},
-
+    rust_analyzer = {},
 }
 
 require('neodev').setup()
@@ -61,93 +61,15 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
+local rt = require("rust-tools")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- OLD
-
---require('mason').setup()
---require('mason-lspconfig').setup()
-
-
---lspconfig.terraformls.setup{}
---lspconfig.jsonls.setup{}
---lspconfig.eslint.setup{}
---lspconfig.tsserver.setup{}
---lspconfig.bashls.setup{}
---lspconfig.jsonnet_ls.setup{}
---lspconfig.bashls.setup{}
---lspconfig.pylsp.setup{}
---require'lspconfig'.kotlin_language_server.setup{}
-
---lspconfig.gopls.setup {
---    cmd = {"gopls", "serve"},
---    filetypes = {"go", "gomod"},
---    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
---    settings = {
---        gopls = {
---          analyses = {
---              unusedparams = true,
---          },
---          staticcheck = true,
---        },
---    },
---}
-
---if not configs.helm_ls then
---  configs.helm_ls = {
---    default_config = {
---      cmd = {"helm_ls", "serve"},
---      filetypes = {'helm'},
---      root_dir = function(fname)
---        return util.root_pattern('Chart.yaml')(fname)
---      end,
---    },
---  }
---end
---
---lspconfig.helm_ls.setup {
---  filetypes = {"helm"},
---  cmd = {"helm_ls", "serve"},
---}
---
---require'lspconfig'.pylsp.setup{
---  settings = {
---    pylsp = {
---      plugins = {
---        pycodestyle = {
---          ignore = {'W391'},
---          maxLineLength = 100
---        }
---      }
---    }
---  }
---}
---
+rt.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      -- Hover actions
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      -- Code action groups
+      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+    end,
+  },
+})

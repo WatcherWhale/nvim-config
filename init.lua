@@ -6,6 +6,7 @@ require("configs/lsp")
 require("configs/treesitter")
 require("configs/cmp")
 require("configs/settings")
+require("configs/gen")
 
 -- Disable case sensitivity
 vim.o.ignorecase = true
@@ -13,7 +14,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Share Clipboard
-vim.opt.clipboard = 'unnamed'
+vim.opt.clipboard = 'unnamedplus'
 
 -- Set Tabs to 4 spaces
 vim.o.tabstop = 4
@@ -93,3 +94,6 @@ vim.keymap.set("n", "<leader>xd", function() require("trouble").open("document_d
 vim.keymap.set("n", "<leader>xq", function() require("trouble").open("quickfix") end)
 vim.keymap.set("n", "<leader>xl", function() require("trouble").open("loclist") end)
 vim.keymap.set("n", "gR", function() require("trouble").open("lsp_references") end)
+
+vim.keymap.set('n', '<leader>lg', ':Gen Generate<CR>')
+vim.keymap.set('v', '<leader>lg', ':Gen Change_Code<CR>')

@@ -12,7 +12,8 @@ require'nvim-treesitter.configs'.setup {
         "kotlin",
         "json",
         "markdown",
-        "javascript"
+        "javascript",
+        "rust",
     },
     ignore_install = {
         "yaml"
