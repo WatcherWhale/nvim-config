@@ -25,9 +25,9 @@ require("lazy").setup({
     },
 
     -- Git
-    {
-        'WatcherWhale/git-worktree.nvim',
-    },
+    --{
+    --    'WatcherWhale/git-worktree.nvim',
+    --},
     'tpope/vim-fugitive',
     'lewis6991/gitsigns.nvim',
     {
@@ -171,5 +171,12 @@ require("lazy").setup({
                 enabled = false,
             })
         end
+    },
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        }
     }
 })

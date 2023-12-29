@@ -2,9 +2,9 @@ local builtin = require('telescope.builtin')
 local fb_actions = require "telescope._extensions.file_browser.actions"
 local actions = require "telescope.actions"
 
-create_worktree = function()
-    require('telescope').extensions.git_worktree.create_git_worktree()
-end
+--create_worktree = function()
+--    require('telescope').extensions.git_worktree.create_git_worktree()
+--end
 
 vim.keymap.set('n', '<leader>fr', builtin.resume, {})
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
@@ -13,7 +13,7 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
 
-vim.keymap.set('n', '<leader>fw', require('telescope').extensions.git_worktree.git_worktrees, {})
+--vim.keymap.set('n', '<leader>fw', require('telescope').extensions.git_worktree.git_worktrees, {})
 --vim.keymap.set('n', '<leader>fa', create_worktree, {})
 vim.api.nvim_set_keymap("n", "<leader>fv", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })
 vim.keymap.set('n', '<leader>u', "<cmd>Telescope undo<cr>")
@@ -100,26 +100,26 @@ require("telescope").setup{
                 },
             }
         },
-        git_worktree = {
-            theme = "ivy",
-            path_display = { "shorten" },
-            items = {
-                {"branch"},
-                {"sha"}
-            },
-            mappings = {
-                ["i"] = {
-                    ["<C-a>"] = create_worktree,
-                    ["<C-d>"] = require("telescope").extensions.git_worktree.actions.delete_worktree,
-                    ["<C-f>"] = require("telescope").extensions.git_worktree.actions.toggle_forced_deletion,
-                },
-                ["n"] = {
-                    ["<C-a>"] = create_worktree,
-                    ["<C-d>"] = require("telescope").extensions.git_worktree.actions.delete_worktree,
-                    ["<C-f>"] = require("telescope").extensions.git_worktree.actions.toggle_forced_deletion,
-                }
-            }
-        },
+        --git_worktree = {
+        --    theme = "ivy",
+        --    path_display = { "shorten" },
+        --    items = {
+        --        {"branch"},
+        --        {"sha"}
+        --    },
+        --    mappings = {
+        --        ["i"] = {
+        --            ["<C-a>"] = create_worktree,
+        --            ["<C-d>"] = require("telescope").extensions.git_worktree.actions.delete_worktree,
+        --            ["<C-f>"] = require("telescope").extensions.git_worktree.actions.toggle_forced_deletion,
+        --        },
+        --        ["n"] = {
+        --            ["<C-a>"] = create_worktree,
+        --            ["<C-d>"] = require("telescope").extensions.git_worktree.actions.delete_worktree,
+        --            ["<C-f>"] = require("telescope").extensions.git_worktree.actions.toggle_forced_deletion,
+        --        }
+        --    }
+        --},
         undo = {
             theme = "ivy",
         }
@@ -128,13 +128,13 @@ require("telescope").setup{
 
 pcall(require('telescope').load_extension, 'fzf')
 
-require('git-worktree').setup({
-    base_directory = "../",
-    after_create_commands = {
-        "npx husky install"
-    }
-})
-require('telescope').load_extension('git_worktree')
+--require('git-worktree').setup({
+--    base_directory = "../",
+--    after_create_commands = {
+--        "npx husky install"
+--    }
+--})
+--require('telescope').load_extension('git_worktree')
 require('telescope').load_extension('file_browser')
 require('telescope').load_extension('undo')
 

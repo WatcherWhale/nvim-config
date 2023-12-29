@@ -7,6 +7,7 @@ require("configs/treesitter")
 require("configs/cmp")
 require("configs/settings")
 require("configs/gen")
+require("configs/harpoon")
 
 -- Disable case sensitivity
 vim.o.ignorecase = true
@@ -85,7 +86,8 @@ vim.cmd([[autocmd FileType terraform setlocal ts=2 sts=2 sw=2 expandtab]])
 vim.cmd([[autocmd FileType terraform command! Fmt :%!terraform fmt - ]])
 
 vim.cmd([[au BufNewFile,BufRead,BufWrite *.tf set filetype=terraform]])
-vim.cmd([[au BufNewFile,BufRead,BufWrite *.tfvars set filetype=terraform]])
+-- vim.cmd([[au BufNewFile,BufRead,BufWrite *.tfvars set filetype=terraform]])
+vim.cmd([[au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4]])
 
 
 vim.keymap.set("n", "<leader>xx", function() require("trouble").open() end)
