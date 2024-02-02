@@ -55,10 +55,15 @@ vim.keymap.set('n', '<leader>bb', ':enew<CR>')
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>')
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>')
 
-vim.keymap.set("n", "<leader>tt", ":tabnew<CR>")
-vim.keymap.set("n", "<leader>tn", ":tabNext<CR>")
-vim.keymap.set("n", "<leader>tp", ":tabPrevious<CR>")
-vim.keymap.set("n", "<leader>tx", ":tabclose<CR>")
+--vim.keymap.set("n", "<leader>tt", ":tabnew<CR>")
+--vim.keymap.set("n", "<leader>tn", ":tabNext<CR>")
+--vim.keymap.set("n", "<leader>tp", ":tabPrevious<CR>")
+--vim.keymap.set("n", "<leader>tx", ":tabclose<CR>")
+
+-- Trouble
+vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
+vim.keymap.set("n", "<leader>xn", function() require("trouble").next({skip_groups = true, jump = true}) end)
+vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
 
 -- Unbind capital Q (Ex Mode)
 vim.keymap.set('n', 'Q', '<Nop>')
@@ -99,3 +104,18 @@ vim.keymap.set("n", "gR", function() require("trouble").open("lsp_references") e
 
 vim.keymap.set('n', '<leader>lg', ':Gen Generate<CR>')
 vim.keymap.set('v', '<leader>lg', ':Gen Change_Code<CR>')
+
+vim.keymap.set('n', '<left>', '<nop>')
+vim.keymap.set('n', '<right>', '<nop>')
+vim.keymap.set('n', '<down>', '<nop>')
+vim.keymap.set('n', '<up>', '<nop>')
+
+vim.keymap.set('i', '<left>', '<nop>')
+vim.keymap.set('i', '<right>', '<nop>')
+vim.keymap.set('i', '<down>', '<nop>')
+vim.keymap.set('i', '<up>', '<nop>')
+
+vim.keymap.set('n', '<leader>o', ':Oil<CR>')
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+
+vim.keymap.set('n', '<leader>gm', ':Git checkout master<CR>', {})

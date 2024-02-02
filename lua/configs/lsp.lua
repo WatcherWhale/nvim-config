@@ -27,8 +27,6 @@ local servers = {
     bashls = {},
     jsonnet_ls = {},
     pyright = {},
-    kotlin_language_server = {},
-    --java_language_server = {},
     lua_ls = {},
     rust_analyzer = {},
 }

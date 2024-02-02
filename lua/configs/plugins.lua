@@ -25,9 +25,9 @@ require("lazy").setup({
     },
 
     -- Git
-    --{
-    --    'WatcherWhale/git-worktree.nvim',
-    --},
+    {
+        'WatcherWhale/git-worktree.nvim',
+    },
     'tpope/vim-fugitive',
     'lewis6991/gitsigns.nvim',
     {
@@ -36,7 +36,7 @@ require("lazy").setup({
             'nvim-lua/plenary.nvim',
             'nvim-tree/nvim-web-devicons',
             'nvim-telescope/telescope-file-browser.nvim',
-            "debugloop/telescope-undo.nvim",
+            --"debugloop/telescope-undo.nvim",
         }
     },
 
@@ -178,5 +178,20 @@ require("lazy").setup({
         dependencies = {
             "nvim-lua/plenary.nvim",
         }
-    }
+    },
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+        opts = {}
+    },
+    {
+        'stevearc/oil.nvim',
+        opts = {},
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
+    'mbbill/undotree',
 })
